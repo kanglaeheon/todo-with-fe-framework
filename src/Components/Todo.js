@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import axios from "axios";
-import { useState } from "react";
+import styled from 'styled-components';
+import axios from 'axios';
+import { useState } from 'react';
 
 export const TodoContainer = styled.div`
   width: 450px;
@@ -82,7 +82,7 @@ const handleTodoCheckboxClick = (
   renderTodos
 ) => {
   axios({
-    method: "patch",
+    method: 'patch',
     url: `http://localhost:3001/todos/${id}`,
     data: {
       done: !done,
@@ -92,7 +92,7 @@ const handleTodoCheckboxClick = (
       setIsUpdateMode(!isUpdateMode);
       renderTodos();
     })
-    .catch((err) => console.error("ERROR: ", err));
+    .catch((err) => console.error('ERROR: ', err));
 };
 
 const handleUpdateSubmitBtnClick = (
@@ -103,7 +103,7 @@ const handleUpdateSubmitBtnClick = (
   renderTodos
 ) => {
   axios({
-    method: "patch",
+    method: 'patch',
     url: `http://localhost:3001/todos/${id}`,
     data: {
       content: content,
@@ -113,7 +113,7 @@ const handleUpdateSubmitBtnClick = (
       setIsUpdateMode(!isUpdateMode);
       renderTodos();
     })
-    .catch((err) => console.error("ERROR: ", err));
+    .catch((err) => console.error('ERROR: ', err));
 };
 
 const handleTodoDeleteBtnClick = (id, renderTodos) => {
@@ -123,7 +123,7 @@ const handleTodoDeleteBtnClick = (id, renderTodos) => {
       renderTodos();
     })
     .catch((err) => {
-      console.error("ERROR: ", err);
+      console.error('ERROR: ', err);
     });
 };
 
@@ -137,7 +137,7 @@ export const Todo = ({ todo, renderTodos }) => {
   };
 
   const handleOnKeyPressUpdateForm = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       handleUpdateSubmitBtnClick(
         id,
         content,
@@ -188,10 +188,10 @@ export const Todo = ({ todo, renderTodos }) => {
           </TodoUpdateSubmit>
         </>
       ) : (
-        <TodoContent className={`${done ? "done" : ""}`}>{content}</TodoContent>
+        <TodoContent className={`${done ? 'done' : ''}`}>{content}</TodoContent>
       )}
       {!isUpdateMode && (
-        <TodoDate className={`${done ? "done" : ""}`}>{date}</TodoDate>
+        <TodoDate className={`${done ? 'done' : ''}`}>{date}</TodoDate>
       )}
       <TodoUpdateBtn onClick={handleTodoUpdateBtnClick}>U</TodoUpdateBtn>
       <TodoDeleteBtn onClick={() => handleTodoDeleteBtnClick(id, renderTodos)}>

@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { useState, useRef } from "react";
-import axios from "axios";
+import styled from 'styled-components';
+import { useState, useRef } from 'react';
+import axios from 'axios';
 
 export const TodoCreateInputContainer = styled.div`
   width: 100%;
@@ -39,7 +39,7 @@ export const TodoCreateInputSubmitBtn = styled.button`
 `;
 
 export const CreateTodoInput = ({ handleCreateBtnClick, renderTodos }) => {
-  const [textCreateInput, setTextCreateInput] = useState("");
+  const [textCreateInput, setTextCreateInput] = useState('');
   const elementCreateInput = useRef(null);
 
   const handleCreateInputChange = (e) => {
@@ -52,8 +52,8 @@ export const CreateTodoInput = ({ handleCreateBtnClick, renderTodos }) => {
       newDate.getMonth() + 1
     }. ${newDate.getDate()}`;
     axios({
-      method: "post",
-      url: "http://localhost:3001/todos",
+      method: 'post',
+      url: 'http://localhost:3001/todos',
       data: {
         content: textCreateInput,
         done: false,
@@ -61,17 +61,17 @@ export const CreateTodoInput = ({ handleCreateBtnClick, renderTodos }) => {
       },
     })
       .then(() => {
-        elementCreateInput.current.value = "";
+        elementCreateInput.current.value = '';
         handleCreateBtnClick();
         renderTodos();
       })
       .catch((err) => {
-        console.error("ERROR: ", err);
+        console.error('ERROR: ', err);
       });
   };
 
   const handleOnEnterKeyPress = (e) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       handleCreateInputSubmit();
     }
   };

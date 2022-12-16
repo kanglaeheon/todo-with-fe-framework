@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import styled from "styled-components";
-import axios from "axios";
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import axios from 'axios';
 
-import { Todo } from "./Todo";
-import { CreateTodo } from "../FeatureComponents/CreateTodo";
+import { Todo } from './Todo';
+import { CreateTodo } from '../FeatureComponents/CreateTodo';
 
 export const TodoListContainer = styled.div`
   width: 100%;
@@ -29,7 +29,7 @@ export const TodoList = ({ handleCreateBtnClick, isCreateMode }) => {
   const [todos, setTodos] = useState([]);
 
   const renderTodos = () => {
-    axios.get("http://localhost:3001/todos").then((res) => {
+    axios.get('http://localhost:3001/todos').then((res) => {
       setTodos(res.data);
     });
   };

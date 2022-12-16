@@ -20,3 +20,36 @@ test : 테스트 코드 수정
 ```
 $ json-server --watch data.json --port 3001
 ```
+
+### GET
+
+[http://localhost:3001/todos][http://localhost:3001/todos]
+
+```
+[
+    {
+        "content": "잠 자기",
+        "done": false,
+        "date": "2022. 12. 13",
+        "id": 1
+    },
+    {
+        "content": "완료!!!!!!",
+        "done": true,
+        "date": "2022. 12. 13",
+        "id": 2
+    },
+    {
+        "content": "다 했따!",
+        "done": false,
+        "date": "2022. 12. 13",
+        "id": 3
+    },
+    {
+        "content": "정적 페이지 배포",
+        "done": false,
+        "date": "2022. 12. 13",
+        "id": 4
+    }
+]
+```
